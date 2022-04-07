@@ -5,6 +5,7 @@ class MapHelper {
     let mapView: MKMapView
     private static let maxDegrees = CLLocationDegrees(360)
     private static let minimumZoomArc = CLLocationDegrees(0.003)
+    private static let maximumAutoSize = Double(100_000) /// meters
     
     init(mapView: MKMapView) {
         self.mapView = mapView
@@ -44,7 +45,7 @@ class MapHelper {
         }
         
         let mapRect = MKPolygon(coordinates: cars.map { $0.coordinate }, count: cars.count).boundingMapRect
-        var region = MKCoordinateRegion(mapView.mapRectThatFits(mapRect))
+        var region = MKCoordinateRegion(mapView.mapRectThatFits(normalized(rect: mapRect)))
 
         if region.span.latitudeDelta > Self.maxDegrees {
             region.span.latitudeDelta  = Self.maxDegrees
@@ -66,5 +67,16 @@ class MapHelper {
             region.span.longitudeDelta = Self.minimumZoomArc
         }
         mapView.setRegion(region, animated: true)
+    }
+    
+    private func normalized(rect: MKMapRect) -> MKMapRect {
+        let widthRatio = rect.origin.distance(to: MKMapPoint(x: rect.origin.x + rect.size.width, y: rect.origin.y)) / Self.maximumAutoSize
+        let heightRatio = rect.origin.distance(to: MKMapPoint(x: rect.origin.x, y: rect.origin.y + rect.size.height)) / Self.maximumAutoSize
+        guard widthRatio > 1 || heightRatio > 1 else {
+            return rect
+        }
+        
+        let multiplier = max(widthRatio, heightRatio)
+        return MKMapRect(origin: rect.origin, size: MKMapSize(width: rect.size.width / multiplier, height: rect.size.height / multiplier))
     }
 }
