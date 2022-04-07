@@ -11,14 +11,29 @@
 		8E1CCE54B4A94AD045E0D29F /* Pods_SixtTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55EE91832826442EFC6DBDEF /* Pods_SixtTests.framework */; };
 		B709DF68ABF3B0DEC2FED9A1 /* Pods_Sixt_SixtUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8137C2893CDB52661D672702 /* Pods_Sixt_SixtUITests.framework */; };
 		EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851027FED62900461FE6 /* AppDelegate.swift */; };
-		EBFE851327FED62900461FE6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851227FED62900461FE6 /* SceneDelegate.swift */; };
-		EBFE851527FED62900461FE6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851427FED62900461FE6 /* ViewController.swift */; };
 		EBFE851827FED62900461FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851627FED62900461FE6 /* Main.storyboard */; };
 		EBFE851A27FED62C00461FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851927FED62C00461FE6 /* Assets.xcassets */; };
 		EBFE851D27FED62C00461FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851B27FED62C00461FE6 /* LaunchScreen.storyboard */; };
 		EBFE852827FED62C00461FE6 /* SixtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE852727FED62C00461FE6 /* SixtTests.swift */; };
 		EBFE853227FED62C00461FE6 /* SixtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE853127FED62C00461FE6 /* SixtUITests.swift */; };
 		EBFE853427FED62C00461FE6 /* SixtUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE853327FED62C00461FE6 /* SixtUITestsLaunchTests.swift */; };
+		EBFE854E27FEE40B00461FE6 /* DI.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE854D27FEE40B00461FE6 /* DI.swift */; };
+		EBFE856027FEE58100461FE6 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855027FEE58100461FE6 /* Car.swift */; };
+		EBFE856127FEE58100461FE6 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855327FEE58100461FE6 /* NetworkService.swift */; };
+		EBFE856227FEE58100461FE6 /* ErrorMessageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855827FEE58100461FE6 /* ErrorMessageService.swift */; };
+		EBFE856327FEE58100461FE6 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855A27FEE58100461FE6 /* AppCoordinator.swift */; };
+		EBFE856427FEE58100461FE6 /* ImageLoaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855D27FEE58100461FE6 /* ImageLoaderService.swift */; };
+		EBFE856527FEE58100461FE6 /* UIView+SnapKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855E27FEE58100461FE6 /* UIView+SnapKit.swift */; };
+		EBFE856627FEE58100461FE6 /* EmptyListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE855F27FEE58100461FE6 /* EmptyListView.swift */; };
+		EBFE856927FEE66200461FE6 /* CarNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE856827FEE66200461FE6 /* CarNetwork.swift */; };
+		EBFE856B27FEE6FE00461FE6 /* CarListable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE856A27FEE6FE00461FE6 /* CarListable.swift */; };
+		EBFE856D27FEE73200461FE6 /* CarNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE856C27FEE73200461FE6 /* CarNetworkError.swift */; };
+		EBFE856F27FEE7EE00461FE6 /* CarMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE856E27FEE7EE00461FE6 /* CarMapper.swift */; };
+		EBFE857327FEE91600461FE6 /* CarSelectModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE857227FEE91600461FE6 /* CarSelectModuleConfigurator.swift */; };
+		EBFE857527FEE94400461FE6 /* CarSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE857427FEE94400461FE6 /* CarSelectViewController.swift */; };
+		EBFE857727FEEEE200461FE6 /* CarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE857627FEEEE200461FE6 /* CarRepository.swift */; };
+		EBFE857927FEEF4B00461FE6 /* CarDatasourceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE857827FEEF4B00461FE6 /* CarDatasourceable.swift */; };
+		EBFE857B27FEF24C00461FE6 /* CarErrorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE857A27FEF24C00461FE6 /* CarErrorable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,8 +64,6 @@
 		C7F294B612F03146DF29B647 /* Pods-SixtTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SixtTests.release.xcconfig"; path = "Target Support Files/Pods-SixtTests/Pods-SixtTests.release.xcconfig"; sourceTree = "<group>"; };
 		EBFE850D27FED62900461FE6 /* Sixt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE851027FED62900461FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EBFE851227FED62900461FE6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		EBFE851427FED62900461FE6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBFE851727FED62900461FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBFE851927FED62C00461FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBFE851C27FED62C00461FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -60,6 +73,23 @@
 		EBFE852D27FED62C00461FE6 /* SixtUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SixtUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE853127FED62C00461FE6 /* SixtUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixtUITests.swift; sourceTree = "<group>"; };
 		EBFE853327FED62C00461FE6 /* SixtUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SixtUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EBFE854D27FEE40B00461FE6 /* DI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DI.swift; sourceTree = "<group>"; };
+		EBFE855027FEE58100461FE6 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		EBFE855327FEE58100461FE6 /* NetworkService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		EBFE855827FEE58100461FE6 /* ErrorMessageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageService.swift; sourceTree = "<group>"; };
+		EBFE855A27FEE58100461FE6 /* AppCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		EBFE855D27FEE58100461FE6 /* ImageLoaderService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoaderService.swift; sourceTree = "<group>"; };
+		EBFE855E27FEE58100461FE6 /* UIView+SnapKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+SnapKit.swift"; sourceTree = "<group>"; };
+		EBFE855F27FEE58100461FE6 /* EmptyListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptyListView.swift; sourceTree = "<group>"; };
+		EBFE856827FEE66200461FE6 /* CarNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNetwork.swift; sourceTree = "<group>"; };
+		EBFE856A27FEE6FE00461FE6 /* CarListable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListable.swift; sourceTree = "<group>"; };
+		EBFE856C27FEE73200461FE6 /* CarNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarNetworkError.swift; sourceTree = "<group>"; };
+		EBFE856E27FEE7EE00461FE6 /* CarMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMapper.swift; sourceTree = "<group>"; };
+		EBFE857227FEE91600461FE6 /* CarSelectModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSelectModuleConfigurator.swift; sourceTree = "<group>"; };
+		EBFE857427FEE94400461FE6 /* CarSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSelectViewController.swift; sourceTree = "<group>"; };
+		EBFE857627FEEEE200461FE6 /* CarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarRepository.swift; sourceTree = "<group>"; };
+		EBFE857827FEEF4B00461FE6 /* CarDatasourceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDatasourceable.swift; sourceTree = "<group>"; };
+		EBFE857A27FEF24C00461FE6 /* CarErrorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarErrorable.swift; sourceTree = "<group>"; };
 		F3D3F1522D8A787019D65E99 /* Pods-Sixt.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sixt.debug.xcconfig"; path = "Target Support Files/Pods-Sixt/Pods-Sixt.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -139,9 +169,14 @@
 		EBFE850F27FED62900461FE6 /* Sixt */ = {
 			isa = PBXGroup;
 			children = (
+				EBFE855927FEE58100461FE6 /* Coordinator */,
+				EBFE854F27FEE58100461FE6 /* Domain */,
+				EBFE855427FEE58100461FE6 /* Modules */,
+				EBFE855127FEE58100461FE6 /* Network */,
+				EBFE855B27FEE58100461FE6 /* Repository */,
+				EBFE855C27FEE58100461FE6 /* UI */,
+				EBFE854D27FEE40B00461FE6 /* DI.swift */,
 				EBFE851027FED62900461FE6 /* AppDelegate.swift */,
-				EBFE851227FED62900461FE6 /* SceneDelegate.swift */,
-				EBFE851427FED62900461FE6 /* ViewController.swift */,
 				EBFE851627FED62900461FE6 /* Main.storyboard */,
 				EBFE851927FED62C00461FE6 /* Assets.xcassets */,
 				EBFE851B27FED62C00461FE6 /* LaunchScreen.storyboard */,
@@ -165,6 +200,120 @@
 				EBFE853327FED62C00461FE6 /* SixtUITestsLaunchTests.swift */,
 			);
 			path = SixtUITests;
+			sourceTree = "<group>";
+		};
+		EBFE854F27FEE58100461FE6 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE855027FEE58100461FE6 /* Car.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		EBFE855127FEE58100461FE6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE855227FEE58100461FE6 /* NetworkService */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EBFE855227FEE58100461FE6 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE855327FEE58100461FE6 /* NetworkService.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		EBFE855427FEE58100461FE6 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE857027FEE8F700461FE6 /* CarSelect */,
+				EBFE855527FEE58100461FE6 /* CarList */,
+				EBFE855627FEE58100461FE6 /* CarMap */,
+				EBFE855727FEE58100461FE6 /* Error */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		EBFE855527FEE58100461FE6 /* CarList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CarList;
+			sourceTree = "<group>";
+		};
+		EBFE855627FEE58100461FE6 /* CarMap */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CarMap;
+			sourceTree = "<group>";
+		};
+		EBFE855727FEE58100461FE6 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE855827FEE58100461FE6 /* ErrorMessageService.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		EBFE855927FEE58100461FE6 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE855A27FEE58100461FE6 /* AppCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		EBFE855B27FEE58100461FE6 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE856A27FEE6FE00461FE6 /* CarListable.swift */,
+				EBFE857627FEEEE200461FE6 /* CarRepository.swift */,
+				EBFE857827FEEF4B00461FE6 /* CarDatasourceable.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		EBFE855C27FEE58100461FE6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE855D27FEE58100461FE6 /* ImageLoaderService.swift */,
+				EBFE855E27FEE58100461FE6 /* UIView+SnapKit.swift */,
+				EBFE855F27FEE58100461FE6 /* EmptyListView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		EBFE856727FEE63F00461FE6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE856827FEE66200461FE6 /* CarNetwork.swift */,
+				EBFE856C27FEE73200461FE6 /* CarNetworkError.swift */,
+				EBFE856E27FEE7EE00461FE6 /* CarMapper.swift */,
+				EBFE857A27FEF24C00461FE6 /* CarErrorable.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		EBFE857027FEE8F700461FE6 /* CarSelect */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE857127FEE90900461FE6 /* View */,
+				EBFE856727FEE63F00461FE6 /* Network */,
+				EBFE857227FEE91600461FE6 /* CarSelectModuleConfigurator.swift */,
+			);
+			path = CarSelect;
+			sourceTree = "<group>";
+		};
+		EBFE857127FEE90900461FE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBFE857427FEE94400461FE6 /* CarSelectViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,9 +555,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EBFE851527FED62900461FE6 /* ViewController.swift in Sources */,
+				EBFE856F27FEE7EE00461FE6 /* CarMapper.swift in Sources */,
+				EBFE856427FEE58100461FE6 /* ImageLoaderService.swift in Sources */,
+				EBFE856327FEE58100461FE6 /* AppCoordinator.swift in Sources */,
+				EBFE854E27FEE40B00461FE6 /* DI.swift in Sources */,
+				EBFE857727FEEEE200461FE6 /* CarRepository.swift in Sources */,
 				EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */,
-				EBFE851327FED62900461FE6 /* SceneDelegate.swift in Sources */,
+				EBFE856B27FEE6FE00461FE6 /* CarListable.swift in Sources */,
+				EBFE856127FEE58100461FE6 /* NetworkService.swift in Sources */,
+				EBFE856527FEE58100461FE6 /* UIView+SnapKit.swift in Sources */,
+				EBFE857527FEE94400461FE6 /* CarSelectViewController.swift in Sources */,
+				EBFE856D27FEE73200461FE6 /* CarNetworkError.swift in Sources */,
+				EBFE857927FEEF4B00461FE6 /* CarDatasourceable.swift in Sources */,
+				EBFE856227FEE58100461FE6 /* ErrorMessageService.swift in Sources */,
+				EBFE856027FEE58100461FE6 /* Car.swift in Sources */,
+				EBFE857327FEE91600461FE6 /* CarSelectModuleConfigurator.swift in Sources */,
+				EBFE857B27FEF24C00461FE6 /* CarErrorable.swift in Sources */,
+				EBFE856627FEE58100461FE6 /* EmptyListView.swift in Sources */,
+				EBFE856927FEE66200461FE6 /* CarNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
