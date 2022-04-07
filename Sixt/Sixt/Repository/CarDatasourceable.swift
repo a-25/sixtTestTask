@@ -1,3 +1,7 @@
 protocol CarDatasourceable {
-    func fetchCarList(_ completion: @escaping (Result<[Car], Error>) -> Void)
+    var cars: [Car]? { get }
+    func loadCars(shouldIgnoreCache: Bool,
+                  _ completion: @escaping (Result<Void, Error>) -> Void)
+    func car(for index: Int) -> Car?
+    func carCount() -> Int
 }

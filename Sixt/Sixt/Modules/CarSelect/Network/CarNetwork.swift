@@ -1,5 +1,6 @@
 struct CarNetwork: Codable {
     let id: String
+    let name: String
     let carImageUrl: String?
     let latitude: Double
     let longitude: Double

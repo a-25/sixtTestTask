@@ -1,10 +1,11 @@
 import UIKit
 class CarSelectModuleConfigurator {
     func createCarSelectController(
-        for navigationController: UINavigationController/*,
-        onCategorySelected: @escaping (Car) -> Void*/
+        for navigationController: UINavigationController
     ) -> CarSelectViewController {
-        return CarSelectViewController(listController: UIViewController(),
-                                       mapController: UIViewController())
+        let listConfigurator = CarListModuleConfigurator()
+        let mapConfigurator = CarMapModuleConfigurator()
+        return CarSelectViewController(listController: listConfigurator.createCarListController(),
+                                       mapController: mapConfigurator.createCarMapController())
     }
 }

@@ -43,7 +43,7 @@ class CarSelectViewController: UIViewController {
         view.addSubview(segmentedControl)
         segmentedControl.snp.makeConstraints {
             $0.top.equalTo(view.snpSafeArea.top)
-            $0.leading.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(44)
         }
         
