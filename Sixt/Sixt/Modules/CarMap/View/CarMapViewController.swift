@@ -5,17 +5,19 @@ import Foundation
 import ProgressHUD
 
 class CarMapViewController: UIViewController {
-    private let mapView = MKMapView()
     private let carDatasource: CarDatasourceable
     private let errorMessageService: CarErrorable
+    private let mapHelper: MapHelper
     private var lastErrorMessage: String?
     
     init(
         carDatasource: CarDatasourceable,
-        errorMessageService: CarErrorable
+        errorMessageService: CarErrorable,
+        mapHelper: MapHelper
     ) {
         self.carDatasource = carDatasource
         self.errorMessageService = errorMessageService
+        self.mapHelper = mapHelper
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -29,31 +31,15 @@ class CarMapViewController: UIViewController {
     }
     
     private func setupUI() {
-        mapView.delegate = self
-        mapView.showsUserLocation = true
-        view.addSubview(mapView)
-        mapView.snp.makeConstraints {
+        mapHelper.mapView.delegate = self
+        mapHelper.mapView.showsUserLocation = true
+        view.addSubview(mapHelper.mapView)
+        mapHelper.mapView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
         
         // Place the cars
         refreshCars()
-    }
-    
-    private func centerMap(_ point: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(
-            center: point,
-            latitudinalMeters: 50000,
-            longitudinalMeters: 60000)
-        if #available(iOS 13.0, *) {
-            mapView.setCameraBoundary(
-                MKMapView.CameraBoundary(coordinateRegion: region),
-                animated: true)
-            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-            mapView.setCameraZoomRange(zoomRange, animated: true)
-        } else {
-            // Fallback on earlier versions
-        }
     }
     
     private func refreshCars(shouldIgnoreCache: Bool = false) {
@@ -70,18 +56,8 @@ class CarMapViewController: UIViewController {
             case let .failure(error):
                 self.lastErrorMessage = self.errorMessageService.getCarMessage(for: error)
             }
-            self.reloadMap()
+            self.mapHelper.reloadMap(with: self.carDatasource.cars)
         }
-    }
-    
-    private func reloadMap() {
-        mapView.removeAnnotations(mapView.annotations)
-        if let cars = carDatasource.cars,
-           !cars.isEmpty {
-            mapView.addAnnotations(cars)
-            centerMap(cars.first!.coordinate)
-        }
-        // Center on user location
     }
 }
 
