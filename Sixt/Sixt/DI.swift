@@ -9,8 +9,12 @@ class DI {
                               carMapper: CarMapper())
     }()
     
+    private static let sortService: CarSort = {
+        return CarSort()
+    }()
+    
     private static let carRepository: CarRepository = {
-        return CarRepository(networkService: networkService)
+        return CarRepository(networkService: networkService, sortService: sortService)
     }()
     
     static let carDatasource: CarDatasourceable = {

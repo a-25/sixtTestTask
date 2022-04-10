@@ -72,7 +72,8 @@ class CarMapViewController: UIViewController {
     private func refreshCars(shouldIgnoreCache: Bool = false) {
         ProgressHUD.show()
         
-        carDatasource.loadCars(shouldIgnoreCache: shouldIgnoreCache) { [weak self] result in
+        carDatasource.loadCars(shouldIgnoreCache: shouldIgnoreCache,
+                               currentLocation: locationService.cachedLocation?.coordinate) { [weak self] result in
             defer { ProgressHUD.dismiss() }
             guard let self = self else {
                 return

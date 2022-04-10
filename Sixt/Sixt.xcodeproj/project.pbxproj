@@ -26,6 +26,9 @@
 		EBCA9A06280301A50026303F /* CarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A05280301A50026303F /* CarColor.swift */; };
 		EBCA9A08280322650026303F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A07280322650026303F /* LocationService.swift */; };
 		EBCA9A0B280323560026303F /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A0A280323560026303F /* LocationError.swift */; };
+		EBCA9A0D28032F550026303F /* CarSort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A0C28032F550026303F /* CarSort.swift */; };
+		EBCA9A0F280338540026303F /* CarListSortView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A0E280338540026303F /* CarListSortView.swift */; };
+		EBCA9A112803389F0026303F /* CarSortOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A102803389F0026303F /* CarSortOperation.swift */; };
 		EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851027FED62900461FE6 /* AppDelegate.swift */; };
 		EBFE851827FED62900461FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851627FED62900461FE6 /* Main.storyboard */; };
 		EBFE851A27FED62C00461FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851927FED62C00461FE6 /* Assets.xcassets */; };
@@ -96,6 +99,9 @@
 		EBCA9A05280301A50026303F /* CarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarColor.swift; sourceTree = "<group>"; };
 		EBCA9A07280322650026303F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		EBCA9A0A280323560026303F /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
+		EBCA9A0C28032F550026303F /* CarSort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSort.swift; sourceTree = "<group>"; };
+		EBCA9A0E280338540026303F /* CarListSortView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarListSortView.swift; sourceTree = "<group>"; };
+		EBCA9A102803389F0026303F /* CarSortOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSortOperation.swift; sourceTree = "<group>"; };
 		EBFE850D27FED62900461FE6 /* Sixt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE851027FED62900461FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFE851727FED62900461FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -292,6 +298,7 @@
 				EBCA9A01280300F00026303F /* FuelType.swift */,
 				EBCA9A03280301440026303F /* InnerCleanliness.swift */,
 				EBCA9A05280301A50026303F /* CarColor.swift */,
+				EBCA9A0C28032F550026303F /* CarSort.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -414,6 +421,8 @@
 			children = (
 				EBFE857C27FEF59800461FE6 /* CarListViewController.swift */,
 				EBFE857F27FEF87D00461FE6 /* CarCell.swift */,
+				EBCA9A0E280338540026303F /* CarListSortView.swift */,
+				EBCA9A102803389F0026303F /* CarSortOperation.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -674,12 +683,15 @@
 				EBFE856127FEE58100461FE6 /* NetworkService.swift in Sources */,
 				EBAD86BB28019CB700D87E0C /* CarDetailsViewController.swift in Sources */,
 				EBFE856527FEE58100461FE6 /* UIView+SnapKit.swift in Sources */,
+				EBCA9A0F280338540026303F /* CarListSortView.swift in Sources */,
+				EBCA9A0D28032F550026303F /* CarSort.swift in Sources */,
 				EBFE857527FEE94400461FE6 /* CarSelectViewController.swift in Sources */,
 				EBFE856D27FEE73200461FE6 /* CarNetworkError.swift in Sources */,
 				EBFE857927FEEF4B00461FE6 /* CarDatasourceable.swift in Sources */,
 				EB30859A27FF314C006E5553 /* CarMapModuleConfigurator.swift in Sources */,
 				EBCA99FC2802F6C90026303F /* CarDetailsModuleConfigurator.swift in Sources */,
 				EBFE856227FEE58100461FE6 /* ErrorMessageService.swift in Sources */,
+				EBCA9A112803389F0026303F /* CarSortOperation.swift in Sources */,
 				EBFE856027FEE58100461FE6 /* Car.swift in Sources */,
 				EBFE857327FEE91600461FE6 /* CarSelectModuleConfigurator.swift in Sources */,
 				EBCA9A00280300A90026303F /* Transmission.swift in Sources */,

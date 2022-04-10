@@ -4,22 +4,25 @@ import Foundation
 import ProgressHUD
 
 class CarListViewController: UIViewController {
-    private let carDatasource: CarDatasourceable
+    private var carDatasource: CarDatasourceable
     private let tableView = UITableView()
     private static let cellIdentifier = "CarCell"
     private let errorMessageService: CarErrorable
     private let imageLoader: ImageLoaderService
+    private let locationService: LocationService
     private var lastErrorMessage: String?
     var onCarSelected: ((Car) -> Void)?
     
     init(
         carDatasource: CarDatasourceable,
         errorMessageService: CarErrorable,
-        imageLoader: ImageLoaderService
+        imageLoader: ImageLoaderService,
+        locationService: LocationService
     ) {
         self.carDatasource = carDatasource
         self.errorMessageService = errorMessageService
         self.imageLoader = imageLoader
+        self.locationService = locationService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,7 +47,7 @@ class CarListViewController: UIViewController {
         tableView.dataSource = self
         tableView.estimatedRowHeight = 100
         tableView.rowHeight = UITableView.automaticDimension
-        title = "Product list"
+        title = "Car list"
         tableView.register(CarCell.self, forCellReuseIdentifier: Self.cellIdentifier)
         addPullToRefresh()
         tableView.snp.makeConstraints {
@@ -71,7 +74,8 @@ class CarListViewController: UIViewController {
     private func refreshCars(shouldIgnoreCache: Bool = false) {
         ProgressHUD.show()
         
-        carDatasource.loadCars(shouldIgnoreCache: shouldIgnoreCache) { [weak self] result in
+        carDatasource.loadCars(shouldIgnoreCache: shouldIgnoreCache,
+                               currentLocation: locationService.cachedLocation?.coordinate) { [weak self] result in
             defer { ProgressHUD.dismiss() }
             guard let self = self else {
                 return
@@ -107,11 +111,17 @@ extension CarListViewController: UITableViewDataSource {
         if let message = lastErrorMessage {
             return EmptyListView(frame: .zero, message: message)
         }
-        return nil
+        guard section == 0 else {
+            return nil
+        }
+        return CarListSortView(activeOperation: carDatasource.sort) { [weak self] operation in
+            self?.carDatasource.sort = operation
+            self?.reloadTable()
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return lastErrorMessage != nil ? 64 : 0
+        return section == 0 ? 64 : 0
     }
 }
 
