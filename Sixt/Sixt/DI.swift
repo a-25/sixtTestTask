@@ -36,4 +36,10 @@ class DI {
     static let locationService: LocationService = {
         return LocationService()
     }()
+    
+    static let carReloadHelper: CarReloadable = {
+        return CarReloadHelper(carDatasource: carDatasource,
+                               locationService: locationService,
+                               errorMessageService: carErrorMessageService)
+    }()
 }

@@ -1,28 +1,23 @@
 import UIKit
 import SnapKit
 import Foundation
-import ProgressHUD
 
 class CarListViewController: UIViewController {
     private var carDatasource: CarDatasourceable
     private let tableView = UITableView()
     private static let cellIdentifier = "CarCell"
-    private let errorMessageService: CarErrorable
+    private let carReloadHelper: CarReloadable
     private let imageLoader: ImageLoaderService
-    private let locationService: LocationService
-    private var lastErrorMessage: String?
     var onCarSelected: ((Car) -> Void)?
     
     init(
         carDatasource: CarDatasourceable,
-        errorMessageService: CarErrorable,
-        imageLoader: ImageLoaderService,
-        locationService: LocationService
+        carReloadHelper: CarReloadable,
+        imageLoader: ImageLoaderService
     ) {
         self.carDatasource = carDatasource
-        self.errorMessageService = errorMessageService
+        self.carReloadHelper = carReloadHelper
         self.imageLoader = imageLoader
-        self.locationService = locationService
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,21 +67,10 @@ class CarListViewController: UIViewController {
     }
     
     private func refreshCars(shouldIgnoreCache: Bool = false) {
-        ProgressHUD.show()
-        
-        carDatasource.loadCars(shouldIgnoreCache: shouldIgnoreCache,
-                               currentLocation: locationService.cachedLocation?.coordinate) { [weak self] result in
-            defer { ProgressHUD.dismiss() }
-            guard let self = self else {
-                return
+        carReloadHelper.refreshCars(shouldIgnoreCache: shouldIgnoreCache) { [weak self] isSuccess in
+            if isSuccess {
+                self?.reloadTable()
             }
-            switch result {
-            case .success:
-                self.lastErrorMessage = self.carDatasource.carCount() > 0 ? nil : "There are no cars here"
-            case let .failure(error):
-                self.lastErrorMessage = self.errorMessageService.getCarMessage(for: error)
-            }
-            self.reloadTable()
         }
     }
 }
@@ -108,7 +92,7 @@ extension CarListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if let message = lastErrorMessage {
+        if let message = carReloadHelper.lastErrorMessage {
             return EmptyListView(frame: .zero, message: message)
         }
         guard section == 0 else {

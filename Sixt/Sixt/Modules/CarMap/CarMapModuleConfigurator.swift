@@ -3,7 +3,7 @@ import UIKit
 class CarMapModuleConfigurator {
     func createCarMapController(onCarSelected: @escaping (UIViewController, Car) -> Void) -> CarMapViewController {
         let mapController =  CarMapViewController(carDatasource: DI.carDatasource,
-                                                  errorMessageService: DI.carErrorMessageService,
+                                                  carReloadHelper: DI.carReloadHelper,
                                                   locationService: DI.locationService,
                                                   mapHelper: MapHelper(mapView: MKMapView(), locationService: DI.locationService)) {
             if let url = URL(string: UIApplication.openSettingsURLString) {

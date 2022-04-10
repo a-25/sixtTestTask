@@ -37,6 +37,8 @@
 		EBCA9A41280358120026303F /* NetworkServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A40280358120026303F /* NetworkServiceMock.swift */; };
 		EBCA9A43280358CB0026303F /* CarSortable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A42280358CB0026303F /* CarSortable.swift */; };
 		EBCA9A45280359470026303F /* CarSortMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A44280359470026303F /* CarSortMock.swift */; };
+		EBCA9A47280361540026303F /* CarReloadHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A46280361540026303F /* CarReloadHelper.swift */; };
+		EBCA9A4A2803624A0026303F /* CarReloadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A492803624A0026303F /* CarReloadable.swift */; };
 		EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851027FED62900461FE6 /* AppDelegate.swift */; };
 		EBFE851A27FED62C00461FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851927FED62C00461FE6 /* Assets.xcassets */; };
 		EBFE851D27FED62C00461FE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851B27FED62C00461FE6 /* LaunchScreen.storyboard */; };
@@ -112,6 +114,8 @@
 		EBCA9A40280358120026303F /* NetworkServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceMock.swift; sourceTree = "<group>"; };
 		EBCA9A42280358CB0026303F /* CarSortable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSortable.swift; sourceTree = "<group>"; };
 		EBCA9A44280359470026303F /* CarSortMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarSortMock.swift; sourceTree = "<group>"; };
+		EBCA9A46280361540026303F /* CarReloadHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReloadHelper.swift; sourceTree = "<group>"; };
+		EBCA9A492803624A0026303F /* CarReloadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarReloadable.swift; sourceTree = "<group>"; };
 		EBFE850D27FED62900461FE6 /* Sixt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE851027FED62900461FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFE851927FED62C00461FE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -274,6 +278,15 @@
 			path = Mock;
 			sourceTree = "<group>";
 		};
+		EBCA9A48280362350026303F /* Reload */ = {
+			isa = PBXGroup;
+			children = (
+				EBCA9A46280361540026303F /* CarReloadHelper.swift */,
+				EBCA9A492803624A0026303F /* CarReloadable.swift */,
+			);
+			path = Reload;
+			sourceTree = "<group>";
+		};
 		EBFE850427FED62900461FE6 = {
 			isa = PBXGroup;
 			children = (
@@ -348,6 +361,7 @@
 		EBFE855427FEE58100461FE6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EBCA9A48280362350026303F /* Reload */,
 				EBAD86C22801A27A00D87E0C /* CarDetails */,
 				EBFE857027FEE8F700461FE6 /* CarSelect */,
 				EBFE855527FEE58100461FE6 /* CarList */,
@@ -641,6 +655,7 @@
 				EBFE856327FEE58100461FE6 /* AppCoordinator.swift in Sources */,
 				EBFE854E27FEE40B00461FE6 /* DI.swift in Sources */,
 				EBCA9A04280301440026303F /* InnerCleanliness.swift in Sources */,
+				EBCA9A47280361540026303F /* CarReloadHelper.swift in Sources */,
 				EBCA9A08280322650026303F /* LocationService.swift in Sources */,
 				EBFE857727FEEEE200461FE6 /* CarRepository.swift in Sources */,
 				EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */,
@@ -676,6 +691,7 @@
 				EBCA9A0B280323560026303F /* LocationError.swift in Sources */,
 				EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */,
 				EBFE856927FEE66200461FE6 /* CarNetwork.swift in Sources */,
+				EBCA9A4A2803624A0026303F /* CarReloadable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

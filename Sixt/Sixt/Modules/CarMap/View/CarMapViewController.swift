@@ -2,15 +2,13 @@ import UIKit
 import MapKit
 import SnapKit
 import Foundation
-import ProgressHUD
 
 class CarMapViewController: UIViewController {
     private let myLocationButton = UIButton()
     private let carDatasource: CarDatasourceable
-    private let errorMessageService: CarErrorable
+    private let carReloadHelper: CarReloadable
     private let locationService: LocationService
     private let mapHelper: MapHelper
-    private var lastErrorMessage: String?
     private static let annotationIdentifier = "CarAnnotation"
     var onCarSelected: ((Car) -> Void)?
     private let onLocationSettingsRequested: (() -> Void)?
@@ -18,13 +16,13 @@ class CarMapViewController: UIViewController {
     
     init(
         carDatasource: CarDatasourceable,
-        errorMessageService: CarErrorable,
+        carReloadHelper: CarReloadable,
         locationService: LocationService,
         mapHelper: MapHelper,
         onLocationSettingsRequested: (() -> Void)?
     ) {
         self.carDatasource = carDatasource
-        self.errorMessageService = errorMessageService
+        self.carReloadHelper = carReloadHelper
         self.locationService = locationService
         self.mapHelper = mapHelper
         self.onLocationSettingsRequested = onLocationSettingsRequested
@@ -70,19 +68,10 @@ class CarMapViewController: UIViewController {
     }
     
     private func refreshCars(shouldIgnoreCache: Bool = false) {
-        ProgressHUD.show()
-        
-        carDatasource.loadCars(shouldIgnoreCache: shouldIgnoreCache,
-                               currentLocation: locationService.cachedLocation?.coordinate) { [weak self] result in
-            defer { ProgressHUD.dismiss() }
-            guard let self = self else {
+        carReloadHelper.refreshCars(shouldIgnoreCache: shouldIgnoreCache) { [weak self] isSuccess in
+            guard let self = self,
+                  isSuccess else {
                 return
-            }
-            switch result {
-            case .success:
-                self.lastErrorMessage = self.carDatasource.carCount() > 0 ? nil : "There are no cars here"
-            case let .failure(error):
-                self.lastErrorMessage = self.errorMessageService.getCarMessage(for: error)
             }
             self.mapHelper.reloadMap(with: self.carDatasource.cars)
         }
