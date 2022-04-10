@@ -28,4 +28,8 @@ class DI {
     static let imageLoader: ImageLoaderService = {
         return ImageLoaderService()
     }()
+    
+    static let locationService: LocationService = {
+        return LocationService()
+    }()
 }

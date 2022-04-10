@@ -4,7 +4,12 @@ class CarMapModuleConfigurator {
     func createCarMapController(onCarSelected: @escaping (UIViewController, Car) -> Void) -> CarMapViewController {
         let mapController =  CarMapViewController(carDatasource: DI.carDatasource,
                                                   errorMessageService: DI.carErrorMessageService,
-                                                  mapHelper: MapHelper(mapView: MKMapView()))
+                                                  locationService: DI.locationService,
+                                                  mapHelper: MapHelper(mapView: MKMapView())) {
+            if let url = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(url)
+            }
+        }
         mapController.onCarSelected = { [weak mapController] car in
             guard let mapController = mapController else {
                 return

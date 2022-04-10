@@ -24,6 +24,8 @@
 		EBCA9A02280300F00026303F /* FuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A01280300F00026303F /* FuelType.swift */; };
 		EBCA9A04280301440026303F /* InnerCleanliness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A03280301440026303F /* InnerCleanliness.swift */; };
 		EBCA9A06280301A50026303F /* CarColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A05280301A50026303F /* CarColor.swift */; };
+		EBCA9A08280322650026303F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A07280322650026303F /* LocationService.swift */; };
+		EBCA9A0B280323560026303F /* LocationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA9A0A280323560026303F /* LocationError.swift */; };
 		EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851027FED62900461FE6 /* AppDelegate.swift */; };
 		EBFE851827FED62900461FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851627FED62900461FE6 /* Main.storyboard */; };
 		EBFE851A27FED62C00461FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851927FED62C00461FE6 /* Assets.xcassets */; };
@@ -92,6 +94,8 @@
 		EBCA9A01280300F00026303F /* FuelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuelType.swift; sourceTree = "<group>"; };
 		EBCA9A03280301440026303F /* InnerCleanliness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerCleanliness.swift; sourceTree = "<group>"; };
 		EBCA9A05280301A50026303F /* CarColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarColor.swift; sourceTree = "<group>"; };
+		EBCA9A07280322650026303F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		EBCA9A0A280323560026303F /* LocationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationError.swift; sourceTree = "<group>"; };
 		EBFE850D27FED62900461FE6 /* Sixt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE851027FED62900461FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFE851727FED62900461FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -212,6 +216,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		EBCA9A092803234D0026303F /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				EBCA9A07280322650026303F /* LocationService.swift */,
+				EBCA9A0A280323560026303F /* LocationError.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
 		EBFE850427FED62900461FE6 = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +336,7 @@
 		EBFE855627FEE58100461FE6 /* CarMap */ = {
 			isa = PBXGroup;
 			children = (
+				EBCA9A092803234D0026303F /* Location */,
 				EB709EAF27FF42BA00232374 /* Map */,
 				EB30859627FF3115006E5553 /* View */,
 				EB30859927FF314C006E5553 /* CarMapModuleConfigurator.swift */,
@@ -650,6 +664,7 @@
 				EBFE856327FEE58100461FE6 /* AppCoordinator.swift in Sources */,
 				EBFE854E27FEE40B00461FE6 /* DI.swift in Sources */,
 				EBCA9A04280301440026303F /* InnerCleanliness.swift in Sources */,
+				EBCA9A08280322650026303F /* LocationService.swift in Sources */,
 				EBFE857727FEEEE200461FE6 /* CarRepository.swift in Sources */,
 				EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */,
 				EB709EB127FF42D300232374 /* MapHelper.swift in Sources */,
@@ -675,6 +690,7 @@
 				EB30859C27FF3327006E5553 /* Car+MKAnnotation.swift in Sources */,
 				EBCA9A02280300F00026303F /* FuelType.swift in Sources */,
 				EBFE858027FEF87D00461FE6 /* CarCell.swift in Sources */,
+				EBCA9A0B280323560026303F /* LocationError.swift in Sources */,
 				EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */,
 				EBFE856927FEE66200461FE6 /* CarNetwork.swift in Sources */,
 			);

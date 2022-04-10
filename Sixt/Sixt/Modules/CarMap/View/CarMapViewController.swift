@@ -5,21 +5,29 @@ import Foundation
 import ProgressHUD
 
 class CarMapViewController: UIViewController {
+    private let myLocationButton = UIButton()
     private let carDatasource: CarDatasourceable
     private let errorMessageService: CarErrorable
+    private let locationService: LocationService
     private let mapHelper: MapHelper
     private var lastErrorMessage: String?
     private static let annotationIdentifier = "CarAnnotation"
     var onCarSelected: ((Car) -> Void)?
+    private let onLocationSettingsRequested: (() -> Void)?
+    private var wasLocationRequested = false
     
     init(
         carDatasource: CarDatasourceable,
         errorMessageService: CarErrorable,
-        mapHelper: MapHelper
+        locationService: LocationService,
+        mapHelper: MapHelper,
+        onLocationSettingsRequested: (() -> Void)?
     ) {
         self.carDatasource = carDatasource
         self.errorMessageService = errorMessageService
+        self.locationService = locationService
         self.mapHelper = mapHelper
+        self.onLocationSettingsRequested = onLocationSettingsRequested
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -32,12 +40,29 @@ class CarMapViewController: UIViewController {
         setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        guard !wasLocationRequested else {
+            return
+        }
+        wasLocationRequested = true
+        locationService.requestLocation(completion: nil)
+    }
+    
     private func setupUI() {
         mapHelper.mapView.delegate = self
         mapHelper.mapView.showsUserLocation = true
         view.addSubview(mapHelper.mapView)
         mapHelper.mapView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+        
+        myLocationButton.setImage(UIImage(named: "myLocation"), for: .normal)
+        myLocationButton.addTarget(self, action: #selector(onMyLocationTap), for: .touchUpInside)
+        view.addSubview(myLocationButton)
+        myLocationButton.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.bottom.equalTo(view.snpSafeArea.bottom).inset(20)
         }
         
         // Place the cars
@@ -59,6 +84,26 @@ class CarMapViewController: UIViewController {
                 self.lastErrorMessage = self.errorMessageService.getCarMessage(for: error)
             }
             self.mapHelper.reloadMap(with: self.carDatasource.cars)
+        }
+    }
+    
+    @objc private func onMyLocationTap() {
+        if let currentLocation = locationService.cachedLocation {
+            mapHelper.centerMap(currentLocation.coordinate)
+        } else {
+            switch locationService.authorizationStatus {
+            case .authorizedAlways, .authorizedWhenInUse, .notDetermined:
+                break
+            case .denied, .restricted:
+                let alert = UIAlertController(title: "Location tracking disabled", message: "To use this feature, please, enable the location tracking", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK, I will", style: .default, handler: { [weak self] _ in
+                    self?.onLocationSettingsRequested?()
+                }))
+                alert.addAction(UIAlertAction(title: "No, I won't", style: .cancel, handler: nil))
+                present(alert, animated: true, completion: nil)
+            @unknown default:
+                break
+            }
         }
     }
 }

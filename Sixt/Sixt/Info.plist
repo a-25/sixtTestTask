@@ -7,5 +7,7 @@
 		<key>UIApplicationSupportsMultipleScenes</key>
 		<false/>
 	</dict>
+    <key>NSLocationWhenInUseUsageDescription</key>
+    <string>This application uses geolocation to search for nearby cars.</string>
 </dict>
 </plist>
