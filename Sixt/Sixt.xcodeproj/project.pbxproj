@@ -15,7 +15,6 @@
 		EB30859A27FF314C006E5553 /* CarMapModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB30859927FF314C006E5553 /* CarMapModuleConfigurator.swift */; };
 		EB30859C27FF3327006E5553 /* Car+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB30859B27FF3327006E5553 /* Car+MKAnnotation.swift */; };
 		EB709EB127FF42D300232374 /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB709EB027FF42D300232374 /* MapHelper.swift */; };
-		EBAD86B62801971900D87E0C /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86B52801971900D87E0C /* CarDetailsView.swift */; };
 		EBAD86BB28019CB700D87E0C /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */; };
 		EBAD86BD28019D1000D87E0C /* CarDetailsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */; };
 		EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */; };
@@ -84,7 +83,6 @@
 		EB30859927FF314C006E5553 /* CarMapModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMapModuleConfigurator.swift; sourceTree = "<group>"; };
 		EB30859B27FF3327006E5553 /* Car+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+MKAnnotation.swift"; sourceTree = "<group>"; };
 		EB709EB027FF42D300232374 /* MapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
-		EBAD86B52801971900D87E0C /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
 		EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsAnimator.swift; sourceTree = "<group>"; };
 		EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsPresentationAnimator.swift; sourceTree = "<group>"; };
@@ -206,7 +204,6 @@
 		EBAD86C32801A28300D87E0C /* View */ = {
 			isa = PBXGroup;
 			children = (
-				EBAD86B52801971900D87E0C /* CarDetailsView.swift */,
 				EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */,
 				EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */,
 				EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */,
@@ -647,7 +644,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBAD86C128019ED300D87E0C /* CarDetailsDismissalAnimator.swift in Sources */,
-				EBAD86B62801971900D87E0C /* CarDetailsView.swift in Sources */,
 				EBFE856F27FEE7EE00461FE6 /* CarMapper.swift in Sources */,
 				EBFE856427FEE58100461FE6 /* ImageLoaderService.swift in Sources */,
 				EBCA9A06280301A50026303F /* CarColor.swift in Sources */,

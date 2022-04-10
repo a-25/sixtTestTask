@@ -1,6 +1,6 @@
 enum Transmission: String {
     case m = "M"
-    case t = "T"
+    case a = "A"
 }
 
 extension Transmission: Codable {}

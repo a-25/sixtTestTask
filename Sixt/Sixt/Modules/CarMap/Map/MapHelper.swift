@@ -5,7 +5,7 @@ class MapHelper {
     let mapView: MKMapView
     private static let maxDegrees = CLLocationDegrees(360)
     private static let minimumZoomArc = CLLocationDegrees(0.003)
-    private static let maximumAutoSize = Double(10_000) /// meters
+    private static let maximumAutoSize = Double(100_000) /// meters
     
     init(mapView: MKMapView) {
         self.mapView = mapView

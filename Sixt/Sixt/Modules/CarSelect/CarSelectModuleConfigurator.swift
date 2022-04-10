@@ -6,7 +6,7 @@ class CarSelectModuleConfigurator {
         let listConfigurator = CarListModuleConfigurator()
         let mapConfigurator = CarMapModuleConfigurator()
         let onCarSelected: (UIViewController, Car) -> Void = { controller, car in
-            let detailsController = CarDetailsModuleConfigurator().createCarDetailsController()
+            let detailsController = CarDetailsModuleConfigurator().createCarDetailsController(car: car)
             controller.present(detailsController, animated: true)
         }
         return CarSelectViewController(

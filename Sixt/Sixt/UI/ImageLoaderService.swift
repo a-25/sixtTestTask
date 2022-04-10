@@ -2,6 +2,11 @@ import UIKit
 import Kingfisher
 
 class ImageLoaderService {
+    // Here could be used some library that generates image and localize paths: R.Swift, SwiftGen, etc.
+    // Assume that in real project it will be present or I will propose to use it.
+    // Here just hardcode the image path.
+    static let defaultImage = UIImage(named: "default")
+    
     func load(url: URL,
               imageView: UIImageView,
               placeholder: UIImage?,
