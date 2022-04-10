@@ -37,7 +37,7 @@ extension NetworkService: CarListable {
                 return
             }
             let models = carList.map { self.carMapper.map($0) }
-            self.wrapCompletion{ completion(.success(models)) }
+            self.wrapCompletion{ completion(.success(/*models*/[])) }
         }
     }
 }

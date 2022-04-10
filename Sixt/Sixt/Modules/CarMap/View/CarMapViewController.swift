@@ -9,6 +9,7 @@ class CarMapViewController: UIViewController {
     private let errorMessageService: CarErrorable
     private let mapHelper: MapHelper
     private var lastErrorMessage: String?
+    private static let annotationIdentifier = "CarAnnotation"
     
     init(
         carDatasource: CarDatasourceable,
@@ -62,29 +63,25 @@ class CarMapViewController: UIViewController {
 }
 
 extension CarMapViewController: MKMapViewDelegate {
-    // 1
     func mapView(
         _ mapView: MKMapView,
         viewFor annotation: MKAnnotation
     ) -> MKAnnotationView? {
-        // 2
         guard let annotation = annotation as? Car else {
             return nil
         }
-        // 3
-        let identifier = "car"
         if #available(iOS 11.0, *) {
             var view: MKMarkerAnnotationView
             // 4
             if let dequeuedView = mapView.dequeueReusableAnnotationView(
-                withIdentifier: identifier) as? MKMarkerAnnotationView {
+                withIdentifier: Self.annotationIdentifier) as? MKMarkerAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
                 // 5
                 view = MKMarkerAnnotationView(
                     annotation: annotation,
-                    reuseIdentifier: identifier)
+                    reuseIdentifier: Self.annotationIdentifier)
                 view.canShowCallout = true
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
@@ -103,6 +100,11 @@ extension CarMapViewController: MKMapViewDelegate {
         guard let car = view.annotation as? Car else {
             return
         }
+        
+        let vc = CarDetailsViewController() { [weak self] in
+            vc.dismiss()
+        }
+        vc.modalPresentationStyle = .custom
+        present(vc, animated: true)
     }
-
 }

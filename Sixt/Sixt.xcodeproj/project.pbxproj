@@ -15,6 +15,11 @@
 		EB30859A27FF314C006E5553 /* CarMapModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB30859927FF314C006E5553 /* CarMapModuleConfigurator.swift */; };
 		EB30859C27FF3327006E5553 /* Car+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB30859B27FF3327006E5553 /* Car+MKAnnotation.swift */; };
 		EB709EB127FF42D300232374 /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB709EB027FF42D300232374 /* MapHelper.swift */; };
+		EBAD86B62801971900D87E0C /* CarDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86B52801971900D87E0C /* CarDetailsView.swift */; };
+		EBAD86BB28019CB700D87E0C /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */; };
+		EBAD86BD28019D1000D87E0C /* CarDetailsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */; };
+		EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */; };
+		EBAD86C128019ED300D87E0C /* CarDetailsDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86C028019ED300D87E0C /* CarDetailsDismissalAnimator.swift */; };
 		EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851027FED62900461FE6 /* AppDelegate.swift */; };
 		EBFE851827FED62900461FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851627FED62900461FE6 /* Main.storyboard */; };
 		EBFE851A27FED62C00461FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851927FED62C00461FE6 /* Assets.xcassets */; };
@@ -74,6 +79,11 @@
 		EB30859927FF314C006E5553 /* CarMapModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMapModuleConfigurator.swift; sourceTree = "<group>"; };
 		EB30859B27FF3327006E5553 /* Car+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+MKAnnotation.swift"; sourceTree = "<group>"; };
 		EB709EB027FF42D300232374 /* MapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
+		EBAD86B52801971900D87E0C /* CarDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsView.swift; sourceTree = "<group>"; };
+		EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
+		EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsAnimator.swift; sourceTree = "<group>"; };
+		EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsPresentationAnimator.swift; sourceTree = "<group>"; };
+		EBAD86C028019ED300D87E0C /* CarDetailsDismissalAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsDismissalAnimator.swift; sourceTree = "<group>"; };
 		EBFE850D27FED62900461FE6 /* Sixt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE851027FED62900461FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFE851727FED62900461FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -174,6 +184,26 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		EBAD86C22801A27A00D87E0C /* CarDetails */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD86C32801A28300D87E0C /* View */,
+			);
+			path = CarDetails;
+			sourceTree = "<group>";
+		};
+		EBAD86C32801A28300D87E0C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EBAD86B52801971900D87E0C /* CarDetailsView.swift */,
+				EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */,
+				EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */,
+				EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */,
+				EBAD86C028019ED300D87E0C /* CarDetailsDismissalAnimator.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		EBFE850427FED62900461FE6 = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +290,7 @@
 		EBFE855427FEE58100461FE6 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				EBAD86C22801A27A00D87E0C /* CarDetails */,
 				EBFE857027FEE8F700461FE6 /* CarSelect */,
 				EBFE855527FEE58100461FE6 /* CarList */,
 				EBFE855627FEE58100461FE6 /* CarMap */,
@@ -600,6 +631,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBAD86C128019ED300D87E0C /* CarDetailsDismissalAnimator.swift in Sources */,
+				EBAD86B62801971900D87E0C /* CarDetailsView.swift in Sources */,
 				EBFE856F27FEE7EE00461FE6 /* CarMapper.swift in Sources */,
 				EBFE856427FEE58100461FE6 /* ImageLoaderService.swift in Sources */,
 				EBFE856327FEE58100461FE6 /* AppCoordinator.swift in Sources */,
@@ -609,7 +642,9 @@
 				EB709EB127FF42D300232374 /* MapHelper.swift in Sources */,
 				EB30859827FF3131006E5553 /* CarMapViewController.swift in Sources */,
 				EBFE856B27FEE6FE00461FE6 /* CarListable.swift in Sources */,
+				EBAD86BD28019D1000D87E0C /* CarDetailsAnimator.swift in Sources */,
 				EBFE856127FEE58100461FE6 /* NetworkService.swift in Sources */,
+				EBAD86BB28019CB700D87E0C /* CarDetailsViewController.swift in Sources */,
 				EBFE856527FEE58100461FE6 /* UIView+SnapKit.swift in Sources */,
 				EBFE857527FEE94400461FE6 /* CarSelectViewController.swift in Sources */,
 				EBFE856D27FEE73200461FE6 /* CarNetworkError.swift in Sources */,
@@ -624,6 +659,7 @@
 				EBFE857D27FEF59800461FE6 /* CarListViewController.swift in Sources */,
 				EB30859C27FF3327006E5553 /* Car+MKAnnotation.swift in Sources */,
 				EBFE858027FEF87D00461FE6 /* CarCell.swift in Sources */,
+				EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */,
 				EBFE856927FEE66200461FE6 /* CarNetwork.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
