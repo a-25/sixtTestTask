@@ -5,7 +5,7 @@ class CarMapModuleConfigurator {
         let mapController =  CarMapViewController(carDatasource: DI.carDatasource,
                                                   errorMessageService: DI.carErrorMessageService,
                                                   locationService: DI.locationService,
-                                                  mapHelper: MapHelper(mapView: MKMapView())) {
+                                                  mapHelper: MapHelper(mapView: MKMapView(), locationService: DI.locationService)) {
             if let url = URL(string: UIApplication.openSettingsURLString) {
                 UIApplication.shared.open(url)
             }

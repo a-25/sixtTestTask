@@ -3,12 +3,14 @@ import CoreLocation
 
 class MapHelper {
     let mapView: MKMapView
+    private let locationService: LocationService
     private static let maxDegrees = CLLocationDegrees(360)
     private static let minimumZoomArc = CLLocationDegrees(0.003)
     private static let maximumAutoSize = Double(100_000) /// meters
     
-    init(mapView: MKMapView) {
+    init(mapView: MKMapView, locationService: LocationService) {
         self.mapView = mapView
+        self.locationService = locationService
     }
     
     func centerMap(_ point: CLLocationCoordinate2D) {
@@ -40,7 +42,9 @@ class MapHelper {
         guard let cars = cars,
               !cars.isEmpty else {
             // Center on user location
-            centerMap(mapView.userLocation.coordinate)
+            if let userLocation = locationService.cachedLocation?.coordinate {
+                centerMap(userLocation)
+            }
             return
         }
         
