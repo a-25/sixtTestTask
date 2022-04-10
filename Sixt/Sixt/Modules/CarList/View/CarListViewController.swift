@@ -10,6 +10,7 @@ class CarListViewController: UIViewController {
     private let errorMessageService: CarErrorable
     private let imageLoader: ImageLoaderService
     private var lastErrorMessage: String?
+    var onCarSelected: ((Car) -> Void)?
     
     init(
         carDatasource: CarDatasourceable,
@@ -116,6 +117,13 @@ extension CarListViewController: UITableViewDataSource {
 
 extension CarListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-        return false
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        if let car = carDatasource.car(for: indexPath.row) {
+            onCarSelected?(car)
+        }
     }
 }

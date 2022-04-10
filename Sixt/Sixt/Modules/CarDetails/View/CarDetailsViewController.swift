@@ -3,9 +3,9 @@ import UIKit
 class CarDetailsViewController: UIViewController {
     private let rentButton = UIButton()
     private let animator = CarDetailsAnimator()
-    private let onClose: (() -> Void)?
+    private let onClose: ((UIViewController?) -> Void)?
     
-    init(onClose: (() -> Void)?) {
+    init(onClose: ((UIViewController?) -> Void)?) {
         self.onClose = onClose
         super.init(nibName: nil, bundle: nil)
     }
@@ -19,8 +19,8 @@ class CarDetailsViewController: UIViewController {
         setupUI()
         
         animator.view = self.view
-        animator.onClose = {
-            
+        animator.onClose = { [weak self] in
+            self?.onClose?(self)
         }
         transitioningDelegate = animator
     }

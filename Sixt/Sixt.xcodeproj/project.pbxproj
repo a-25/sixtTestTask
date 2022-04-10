@@ -20,6 +20,7 @@
 		EBAD86BD28019D1000D87E0C /* CarDetailsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */; };
 		EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */; };
 		EBAD86C128019ED300D87E0C /* CarDetailsDismissalAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86C028019ED300D87E0C /* CarDetailsDismissalAnimator.swift */; };
+		EBCA99FC2802F6C90026303F /* CarDetailsModuleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA99FB2802F6C90026303F /* CarDetailsModuleConfigurator.swift */; };
 		EBFE851127FED62900461FE6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFE851027FED62900461FE6 /* AppDelegate.swift */; };
 		EBFE851827FED62900461FE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851627FED62900461FE6 /* Main.storyboard */; };
 		EBFE851A27FED62C00461FE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBFE851927FED62C00461FE6 /* Assets.xcassets */; };
@@ -84,6 +85,7 @@
 		EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsAnimator.swift; sourceTree = "<group>"; };
 		EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsPresentationAnimator.swift; sourceTree = "<group>"; };
 		EBAD86C028019ED300D87E0C /* CarDetailsDismissalAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsDismissalAnimator.swift; sourceTree = "<group>"; };
+		EBCA99FB2802F6C90026303F /* CarDetailsModuleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsModuleConfigurator.swift; sourceTree = "<group>"; };
 		EBFE850D27FED62900461FE6 /* Sixt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sixt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBFE851027FED62900461FE6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBFE851727FED62900461FE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 			isa = PBXGroup;
 			children = (
 				EBAD86C32801A28300D87E0C /* View */,
+				EBCA99FB2802F6C90026303F /* CarDetailsModuleConfigurator.swift */,
 			);
 			path = CarDetails;
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				EBFE856D27FEE73200461FE6 /* CarNetworkError.swift in Sources */,
 				EBFE857927FEEF4B00461FE6 /* CarDatasourceable.swift in Sources */,
 				EB30859A27FF314C006E5553 /* CarMapModuleConfigurator.swift in Sources */,
+				EBCA99FC2802F6C90026303F /* CarDetailsModuleConfigurator.swift in Sources */,
 				EBFE856227FEE58100461FE6 /* ErrorMessageService.swift in Sources */,
 				EBFE856027FEE58100461FE6 /* Car.swift in Sources */,
 				EBFE857327FEE91600461FE6 /* CarSelectModuleConfigurator.swift in Sources */,

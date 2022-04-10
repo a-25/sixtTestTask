@@ -10,6 +10,7 @@ class CarMapViewController: UIViewController {
     private let mapHelper: MapHelper
     private var lastErrorMessage: String?
     private static let annotationIdentifier = "CarAnnotation"
+    var onCarSelected: ((Car) -> Void)?
     
     init(
         carDatasource: CarDatasourceable,
@@ -101,10 +102,6 @@ extension CarMapViewController: MKMapViewDelegate {
             return
         }
         
-        let vc = CarDetailsViewController() { [weak self] in
-            vc.dismiss()
-        }
-        vc.modalPresentationStyle = .custom
-        present(vc, animated: true)
+        onCarSelected?(car)
     }
 }

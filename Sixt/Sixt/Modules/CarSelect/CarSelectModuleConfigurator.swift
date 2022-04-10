@@ -5,7 +5,13 @@ class CarSelectModuleConfigurator {
     ) -> CarSelectViewController {
         let listConfigurator = CarListModuleConfigurator()
         let mapConfigurator = CarMapModuleConfigurator()
-        return CarSelectViewController(listController: listConfigurator.createCarListController(),
-                                       mapController: mapConfigurator.createCarMapController())
+        let onCarSelected: (UIViewController, Car) -> Void = { controller, car in
+            let detailsController = CarDetailsModuleConfigurator().createCarDetailsController()
+            controller.present(detailsController, animated: true)
+        }
+        return CarSelectViewController(
+            listController: listConfigurator.createCarListController(onCarSelected: onCarSelected),
+            mapController: mapConfigurator.createCarMapController(onCarSelected: onCarSelected)
+        )
     }
 }
