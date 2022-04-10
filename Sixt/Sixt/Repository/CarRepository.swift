@@ -4,7 +4,7 @@ import CoreLocation
 // All the data is stored just in memory
 class CarRepository {
     private let networkService: CarListable
-    private let sortService: CarSort
+    private let sortService: CarSortable
     private(set) var cars: [Car]?
     private var currentLocation: CLLocationCoordinate2D?
     var sort: CartSortOperation {
@@ -15,7 +15,7 @@ class CarRepository {
         }
     }
     
-    init(networkService: CarListable, sortService: CarSort) {
+    init(networkService: CarListable, sortService: CarSortable) {
         self.networkService = networkService
         self.sortService = sortService
         self.sort = .sortRating
@@ -49,6 +49,7 @@ extension CarRepository: CarDatasourceable {
             }
         }
     }
+
     func car(for index: Int) -> Car? {
         guard let cars = cars,
             cars.count > index else {

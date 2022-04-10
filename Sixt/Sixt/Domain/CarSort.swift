@@ -4,18 +4,6 @@ class CarSort {
     /// Maximum distance in kilometers that influences the rating. If the distance between the user and cars are more than 100 km, the difference between cars is ignored
     private static let maximumDistanceKmRating = Int(100)
     
-    func sorted(_ carList: [Car],
-                by sort: CartSortOperation,
-                currentLocation: CLLocationCoordinate2D?
-    ) -> [Car] {
-        switch sort {
-        case .sortRating:
-            return sortedByRating(carList, currentLocation: currentLocation)
-        case .sortDistance:
-            return sortedByDistance(carList, currentLocation: currentLocation)
-        }
-    }
-    
     func sortedByRating(_ carList: [Car], currentLocation: CLLocationCoordinate2D?) -> [Car] {
         return carList.sorted(by: { overallRating(for: $0, currentLocation: currentLocation) > overallRating(for: $1, currentLocation: currentLocation) })
     }
@@ -48,5 +36,19 @@ class CarSort {
             rating += min(Int(distance / 1_000), Self.maximumDistanceKmRating) * 50
         }
         return rating
+    }
+}
+
+extension CarSort: CarSortable {
+    func sorted(_ carList: [Car],
+                by sort: CartSortOperation,
+                currentLocation: CLLocationCoordinate2D?
+    ) -> [Car] {
+        switch sort {
+        case .sortRating:
+            return sortedByRating(carList, currentLocation: currentLocation)
+        case .sortDistance:
+            return sortedByDistance(carList, currentLocation: currentLocation)
+        }
     }
 }

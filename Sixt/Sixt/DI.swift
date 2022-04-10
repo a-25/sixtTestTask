@@ -9,7 +9,7 @@ class DI {
                               carMapper: CarMapper())
     }()
     
-    private static let sortService: CarSort = {
+    private static let sortService: CarSortable = {
         return CarSort()
     }()
     
