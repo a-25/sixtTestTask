@@ -19,12 +19,13 @@ class CarListSortView: UIView {
     }
     
     private func setupUI(_ activeOperation: CartSortOperation?) {
+        backgroundColor = .white
         buttonsList.axis = .horizontal
         buttonsList.distribution = .fillEqually
         buttonsList.spacing = 10
         addSubview(buttonsList)
         buttonsList.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.edges.equalToSuperview().inset(10)
         }
         
         configureButton(ratingSortButton,
