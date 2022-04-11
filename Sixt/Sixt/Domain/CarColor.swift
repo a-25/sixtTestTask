@@ -11,3 +11,5 @@ enum CarColor: String {
 }
 
 extension CarColor: Codable {}
+
+extension CarColor: Equatable {}

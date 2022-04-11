@@ -5,3 +5,5 @@ enum InnerCleanliness: String {
 }
 
 extension InnerCleanliness: Codable {}
+
+extension InnerCleanliness: Equatable {}

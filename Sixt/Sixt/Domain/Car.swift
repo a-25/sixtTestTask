@@ -1,5 +1,7 @@
 import Foundation
-class Car: NSObject {
+import CoreLocation
+
+struct Car {
     let id: String
     let name: String
     let latitude: Double
@@ -13,6 +15,10 @@ class Car: NSObject {
     let color: CarColor?
     let make: String
     let modelName: String
+    
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
     
     init(
         id: String,
@@ -42,6 +48,7 @@ class Car: NSObject {
         self.color = color
         self.make = make
         self.modelName = modelName
-        super.init()
     }
 }
+
+extension Car: Equatable {}

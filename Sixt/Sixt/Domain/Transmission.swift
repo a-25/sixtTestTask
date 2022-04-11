@@ -5,7 +5,11 @@ enum Transmission: String {
 
 extension Transmission: Codable {}
 
+extension Transmission: Equatable {}
+
 enum TransmissionType {
     case exact(Transmission)
     case custom(String)
 }
+
+extension TransmissionType: Equatable {}

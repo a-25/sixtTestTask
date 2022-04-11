@@ -53,5 +53,22 @@ class TestData {
             color: .icedChocolate,
             make: "make4",
             modelName: "modelName4"),
+        Car(id: "id5",
+            name: "name5",
+            latitude: 55.04988,
+            longitude: 11.01393,
+            carImageUrl: "https://cdn.sixt.io/codingtask/images/bmw_1er.png",
+            transmission: .custom("NewTransmission"),
+            fuelType: .diesel,
+            fuelLevel: 0.1,
+            licensePlate: "licensePlate5",
+            innerCleanliness: nil,
+            color: .icedChocolate,
+            make: "make5",
+            modelName: "modelName5"),
     ]
+    
+    static var carAnnotationList: [CarAnnotation] {
+        return carList.map { CarAnnotation(car: $0) }
+    }
 }

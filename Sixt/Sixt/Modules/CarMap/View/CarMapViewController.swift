@@ -103,7 +103,7 @@ extension CarMapViewController: MKMapViewDelegate {
         _ mapView: MKMapView,
         viewFor annotation: MKAnnotation
     ) -> MKAnnotationView? {
-        guard let annotation = annotation as? Car else {
+        guard let annotation = annotation as? CarAnnotation else {
             return nil
         }
         if #available(iOS 11.0, *) {
@@ -133,10 +133,10 @@ extension CarMapViewController: MKMapViewDelegate {
         annotationView view: MKAnnotationView,
         calloutAccessoryControlTapped control: UIControl
     ) {
-        guard let car = view.annotation as? Car else {
+        guard let car = view.annotation as? CarAnnotation else {
             return
         }
         
-        onCarSelected?(car)
+        onCarSelected?(car.car)
     }
 }

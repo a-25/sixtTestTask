@@ -9,7 +9,6 @@ class CarDetailsAnimator: NSObject {
     override init() {
         super.init()
         panGesture.addTarget(self, action: #selector(didPan(_:)))
-//        panGesture.delegate = self
     }
     
     @objc private func didPan(_ sender: UIPanGestureRecognizer) {

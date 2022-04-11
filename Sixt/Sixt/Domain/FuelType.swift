@@ -5,3 +5,5 @@ enum FuelType: String {
 }
 
 extension FuelType: Codable {}
+
+extension FuelType: Equatable {}

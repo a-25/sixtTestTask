@@ -67,7 +67,7 @@ class CartRepositoryTest: XCTestCase {
         let expectation = XCTestExpectation(description: "CartRepositoryTest.testCarCount")
         carRepository.loadCars(shouldIgnoreCache: false,
                                currentLocation: nil) { _ in
-            XCTAssertEqual(self.carRepository.carCount(), 4)
+            XCTAssertEqual(self.carRepository.carCount(), 5)
             expectation.fulfill()
         }
         wait(for: [expectation], timeout: 3.0)

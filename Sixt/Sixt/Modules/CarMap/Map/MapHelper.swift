@@ -33,7 +33,7 @@ class MapHelper {
         mapView.removeAnnotations(mapView.annotations)
         if let cars = cars,
            !cars.isEmpty {
-            mapView.addAnnotations(cars)
+            mapView.addAnnotations(cars.map { CarAnnotation(car: $0) })
         }
         zoomToFit(with: cars)
     }
