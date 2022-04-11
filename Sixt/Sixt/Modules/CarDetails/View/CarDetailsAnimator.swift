@@ -48,15 +48,6 @@ class CarDetailsAnimator: NSObject {
     }
 }
 
-//extension CarDetailsAnimator: UIGestureRecognizerDelegate {
-//    public func gestureRecognizer(
-//        _ gestureRecognizer: UIGestureRecognizer,
-//        shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer
-//    ) -> Bool {
-//        return true
-//    }
-//}
-
 extension CarDetailsAnimator: UIViewControllerTransitioningDelegate {
     public func animationController(
         forPresented presented: UIViewController,

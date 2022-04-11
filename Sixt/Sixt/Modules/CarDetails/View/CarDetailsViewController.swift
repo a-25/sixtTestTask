@@ -1,6 +1,8 @@
 import UIKit
+import SnapKit
 
 class CarDetailsViewController: UIViewController {
+    private let contentView = UIView()
     private let rentButton = UIButton()
     private let nameLabel = UILabel()
     private let transmissionLabel = UILabel()
@@ -8,11 +10,14 @@ class CarDetailsViewController: UIViewController {
     private let carImage = UIImageView()
     private let fuelLevel = UIProgressView()
     private let cleaningLevel = UILabel()
+    private let colorView = UIView()
     private let closeButton = UIButton()
     private let animator = CarDetailsAnimator()
     private let imageLoader: ImageLoaderService
     private let onClose: ((UIViewController) -> Void)?
     private static let imageWidth = CGFloat(200)
+    private static let colorViewWidth = CGFloat(30)
+    private var viewHeight: Constraint?
     private let car: Car
     
     init(
@@ -46,32 +51,49 @@ class CarDetailsViewController: UIViewController {
     }
     
     private func setupUI() {
-        view.backgroundColor = .white
+        view.backgroundColor = .clear
+          
+        contentView.backgroundColor = .white
+        view.addSubview(contentView)
+        contentView.snp.makeConstraints {
+            $0.bottom.equalTo(view.snpSafeArea.bottom)
+            $0.leading.trailing.equalToSuperview()
+        }
         
         carImage.contentMode = .scaleAspectFit
         carImage.image = ImageLoaderService.defaultImage
-        view.addSubview(carImage)
+        contentView.addSubview(carImage)
         carImage.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.height.equalTo(Self.imageWidth).priority(.high)
+            $0.height.equalTo(Self.imageWidth)
             $0.width.equalTo(Self.imageWidth)
-            $0.top.equalTo(view.snpSafeArea.top).offset(20)
+            $0.top.equalToSuperview().offset(20)
         }
         
         nameLabel.font = .systemFont(ofSize: 24)
         nameLabel.numberOfLines = 2
         nameLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         nameLabel.textAlignment = .left
-        view.addSubview(nameLabel)
+        contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().inset(20)
             $0.top.equalTo(carImage.snp.bottom).offset(20)
+        }
+        
+        colorView.layer.cornerRadius = Self.colorViewWidth / 2
+        colorView.layer.borderColor = UIColor.black.cgColor
+        colorView.layer.borderWidth = CGFloat(1)
+        contentView.addSubview(colorView)
+        colorView.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.leading.greaterThanOrEqualTo(nameLabel.snp.trailing).offset(20)
+            $0.top.equalTo(nameLabel)
+            $0.height.width.equalTo(Self.colorViewWidth)
         }
         
         transmissionLabel.font = .systemFont(ofSize: 14)
         transmissionLabel.textAlignment = .left
-        view.addSubview(transmissionLabel)
+        contentView.addSubview(transmissionLabel)
         transmissionLabel.snp.makeConstraints {
             $0.top.equalTo(nameLabel.snp.bottom).offset(4)
             $0.leading.trailing.equalTo(nameLabel)
@@ -79,14 +101,14 @@ class CarDetailsViewController: UIViewController {
         
         fuelTypeLabel.font = .systemFont(ofSize: 14)
         fuelTypeLabel.textAlignment = .left
-        view.addSubview(fuelTypeLabel)
+        contentView.addSubview(fuelTypeLabel)
         fuelTypeLabel.snp.makeConstraints {
             $0.top.equalTo(transmissionLabel.snp.bottom).offset(4)
             $0.leading.trailing.equalTo(nameLabel)
         }
 
         fuelLevel.progressTintColor = .blue
-        view.addSubview(fuelLevel)
+        contentView.addSubview(fuelLevel)
         fuelLevel.snp.makeConstraints {
             $0.top.equalTo(fuelTypeLabel.snp.bottom).offset(8)
             $0.leading.trailing.equalTo(nameLabel)
@@ -94,7 +116,7 @@ class CarDetailsViewController: UIViewController {
         
         cleaningLevel.font = .systemFont(ofSize: 14)
         cleaningLevel.textAlignment = .left
-        view.addSubview(cleaningLevel)
+        contentView.addSubview(cleaningLevel)
         cleaningLevel.snp.makeConstraints {
             $0.top.equalTo(fuelLevel.snp.bottom).offset(8)
             $0.leading.equalTo(nameLabel)
@@ -105,24 +127,23 @@ class CarDetailsViewController: UIViewController {
         rentButton.setTitleColor(.black, for: .normal)
         rentButton.setTitle("Rent a car", for: .normal)
         rentButton.addTarget(self, action: #selector(onRentButtonTapped), for: .touchUpInside)
-        view.addSubview(rentButton)
+        contentView.addSubview(rentButton)
         rentButton.snp.makeConstraints {
             $0.top.equalTo(cleaningLevel.snp.bottom).offset(20)
             $0.leading.trailing.bottom.equalToSuperview().inset(20)
             $0.height.equalTo(64)
-//            $0.bottom.lessThanOrEqualTo(view.snpSafeArea.bottom).inset(20)
+            $0.bottom.equalToSuperview().inset(40)
         }
         
         closeButton.setImage(UIImage(named: "cross"), for: .normal)
         closeButton.addTarget(self, action: #selector(onCloseButtonTapped), for: .touchUpInside)
-        view.addSubview(closeButton)
+        contentView.addSubview(closeButton)
         closeButton.snp.makeConstraints {
-            $0.top.equalTo(view.snpSafeArea.top).offset(20)
+            $0.top.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().inset(20)
             $0.width.equalTo(36)
             $0.height.equalTo(31)
         }
-        
         view.addGestureRecognizer(animator.panGesture)
     }
     
@@ -170,6 +191,32 @@ class CarDetailsViewController: UIViewController {
                              resizeTo: CGSize(width: Self.imageWidth, height: Self.imageWidth))
         } else {
             carImage.image = ImageLoaderService.defaultImage
+        }
+        colorView.backgroundColor = color(for: car.color)
+    }
+    
+    private func color(for carColor: CarColor?) -> UIColor {
+        switch carColor {
+        case .none:
+            return .clear
+        case .some(.icedChocolate):
+            return .brown
+        case .some(.midnightBlack):
+            return .black
+        case .some(.hotChocolate):
+            return .brown
+        case .some(.midnightBlackMetal):
+            return .darkGray
+        case .some(.lightWhite):
+            return .white
+        case .some(.alpinweiss):
+            return .white
+        case .some(.saphirschwarz):
+            return .black
+        case .some(.schwarz):
+            return .black
+        case .some(.absoluteBlackMetal):
+            return .darkGray
         }
     }
 }
