@@ -6,7 +6,8 @@ class MapHelper {
     private let locationService: LocationService
     private static let maxDegrees = CLLocationDegrees(360)
     private static let minimumZoomArc = CLLocationDegrees(0.003)
-    private static let maximumAutoSize = Double(100_000) /// meters
+    private static let maximumSizeCars = Double(100_000) /// meters
+    private static let centerRadius = CLLocationDistance(10_000)
     
     init(mapView: MKMapView, locationService: LocationService) {
         self.mapView = mapView
@@ -14,18 +15,17 @@ class MapHelper {
     }
     
     func centerMap(_ point: CLLocationCoordinate2D) {
-        let region = MKCoordinateRegion(
-            center: point,
-            latitudinalMeters: 50000,
-            longitudinalMeters: 60000)
+        mapView.setCenter(point, animated: true)
+    }
+    
+    private func zoomDefault() {
         if #available(iOS 13.0, *) {
-            mapView.setCameraBoundary(
-                MKMapView.CameraBoundary(coordinateRegion: region),
-                animated: true)
-            let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 200000)
-            mapView.setCameraZoomRange(zoomRange, animated: true)
+            mapView.setCameraZoomRange(MKMapView.CameraZoomRange(minCenterCoordinateDistance: Self.centerRadius * 8.0, maxCenterCoordinateDistance: Self.centerRadius * 8.0), animated: true)
         } else {
-            // Fallback on earlier versions
+            let coordinateRegion = MKCoordinateRegion(center: mapView.centerCoordinate,
+                                                      latitudinalMeters: Self.centerRadius * 2.0,
+                                                      longitudinalMeters: Self.centerRadius * 2.0)
+            mapView.setRegion(coordinateRegion, animated: true)
         }
     }
     
@@ -42,6 +42,7 @@ class MapHelper {
         guard let cars = cars,
               !cars.isEmpty else {
             // Center on user location
+            zoomDefault()
             if let userLocation = locationService.cachedLocation?.coordinate {
                 centerMap(userLocation)
             }
@@ -74,14 +75,13 @@ class MapHelper {
     }
     
     private func normalized(rect: MKMapRect) -> MKMapRect {
-        let widthRatio = rect.origin.distance(to: MKMapPoint(x: rect.origin.x + rect.size.width, y: rect.origin.y)) / Self.maximumAutoSize
-        let heightRatio = rect.origin.distance(to: MKMapPoint(x: rect.origin.x, y: rect.origin.y + rect.size.height)) / Self.maximumAutoSize
+        let widthRatio = rect.origin.distance(to: MKMapPoint(x: rect.origin.x + rect.size.width, y: rect.origin.y)) / Self.maximumSizeCars
+        let heightRatio = rect.origin.distance(to: MKMapPoint(x: rect.origin.x, y: rect.origin.y + rect.size.height)) / Self.maximumSizeCars
         guard widthRatio > 1 || heightRatio > 1 else {
             return rect
         }
         
         let multiplier = max(widthRatio, heightRatio)
-//        let newOrigin = MKMapPoint(x: rect.origin.x / multiplier, y: rect.origin.y / multiplier)
         return MKMapRect(origin: rect.origin, size: MKMapSize(width: rect.size.width / multiplier, height: rect.size.height / multiplier))
     }
 }
