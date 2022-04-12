@@ -108,13 +108,11 @@ extension CarMapViewController: MKMapViewDelegate {
         }
         if #available(iOS 11.0, *) {
             var view: MKMarkerAnnotationView
-            // 4
             if let dequeuedView = mapView.dequeueReusableAnnotationView(
                 withIdentifier: Self.annotationIdentifier) as? MKMarkerAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
             } else {
-                // 5
                 view = MKMarkerAnnotationView(
                     annotation: annotation,
                     reuseIdentifier: Self.annotationIdentifier)

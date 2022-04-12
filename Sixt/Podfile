@@ -16,8 +16,4 @@ target 'Sixt' do
     # Pods for testing
   end
 
-#  target 'SixtUITests' do
-#    # Pods for testing
-#  end
-
 end
