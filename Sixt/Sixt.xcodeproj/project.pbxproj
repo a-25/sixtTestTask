@@ -14,6 +14,8 @@
 		EB30859C27FF3327006E5553 /* Car+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB30859B27FF3327006E5553 /* Car+MKAnnotation.swift */; };
 		EB49E5F22804B1BD0015CABB /* CarMapperText.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB49E5F12804B1BD0015CABB /* CarMapperText.swift */; };
 		EB709EB127FF42D300232374 /* MapHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB709EB027FF42D300232374 /* MapHelper.swift */; };
+		EBAC95F428056DED00C54441 /* ErrorMessageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAC95F328056DED00C54441 /* ErrorMessageServiceTest.swift */; };
+		EBAC95F628056EC000C54441 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAC95F528056EC000C54441 /* MockError.swift */; };
 		EBAD86BB28019CB700D87E0C /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */; };
 		EBAD86BD28019D1000D87E0C /* CarDetailsAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */; };
 		EBAD86BF28019E7500D87E0C /* CarDetailsPresentationAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */; };
@@ -92,6 +94,8 @@
 		EB30859B27FF3327006E5553 /* Car+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Car+MKAnnotation.swift"; sourceTree = "<group>"; };
 		EB49E5F12804B1BD0015CABB /* CarMapperText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarMapperText.swift; sourceTree = "<group>"; };
 		EB709EB027FF42D300232374 /* MapHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHelper.swift; sourceTree = "<group>"; };
+		EBAC95F328056DED00C54441 /* ErrorMessageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageServiceTest.swift; sourceTree = "<group>"; };
+		EBAC95F528056EC000C54441 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
 		EBAD86BA28019CB700D87E0C /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 		EBAD86BC28019D1000D87E0C /* CarDetailsAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsAnimator.swift; sourceTree = "<group>"; };
 		EBAD86BE28019E7500D87E0C /* CarDetailsPresentationAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsPresentationAnimator.swift; sourceTree = "<group>"; };
@@ -214,6 +218,14 @@
 			path = Map;
 			sourceTree = "<group>";
 		};
+		EBAC95F228056DD400C54441 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				EBAC95F328056DED00C54441 /* ErrorMessageServiceTest.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		EBAD86C22801A27A00D87E0C /* CarDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +258,7 @@
 		EBCA9A1F280350490026303F /* SixtTests */ = {
 			isa = PBXGroup;
 			children = (
+				EBAC95F228056DD400C54441 /* Error */,
 				EB49E5F02804B1AD0015CABB /* CarSelect */,
 				EBCA9A3F280358050026303F /* Mock */,
 				EBCA9A3C280357A40026303F /* Repository */,
@@ -285,6 +298,7 @@
 			children = (
 				EBCA9A40280358120026303F /* NetworkServiceMock.swift */,
 				EBCA9A44280359470026303F /* CarSortMock.swift */,
+				EBAC95F528056EC000C54441 /* MockError.swift */,
 			);
 			path = Mock;
 			sourceTree = "<group>";
@@ -649,7 +663,9 @@
 				EBCA9A31280351CA0026303F /* UnitTestAppDelegate.swift in Sources */,
 				EBCA9A41280358120026303F /* NetworkServiceMock.swift in Sources */,
 				EBCA9A3B280354A10026303F /* CarMKAnnotationTest.swift in Sources */,
+				EBAC95F428056DED00C54441 /* ErrorMessageServiceTest.swift in Sources */,
 				EBCA9A2B2803505B0026303F /* TestData.swift in Sources */,
+				EBAC95F628056EC000C54441 /* MockError.swift in Sources */,
 				EBCA9A2C2803505B0026303F /* CarSortTest.swift in Sources */,
 				EB49E5F22804B1BD0015CABB /* CarMapperText.swift in Sources */,
 				EBCA9A45280359470026303F /* CarSortMock.swift in Sources */,
