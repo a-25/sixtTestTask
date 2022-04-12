@@ -130,7 +130,7 @@ class CarDetailsViewController: UIViewController {
         contentView.addSubview(rentButton)
         rentButton.snp.makeConstraints {
             $0.top.equalTo(cleaningLevel.snp.bottom).offset(20)
-            $0.leading.trailing.bottom.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(64)
             $0.bottom.equalToSuperview().inset(40)
         }
